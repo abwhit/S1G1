@@ -15,4 +15,21 @@ public class ButtonController : MonoBehaviour {
 
 	}
 
+	public void OnClickQuit()
+	{
+		// How to quit the game in the editor 
+		#if UNITY_EDITOR
+		
+		UnityEditor.EditorApplication.isPlaying = false;
+		
+		#else
+		
+		
+		Application.Quit ();
+		
+		#endif
+
+
+	}
+
 }
