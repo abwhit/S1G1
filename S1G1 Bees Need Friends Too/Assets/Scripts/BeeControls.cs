@@ -19,7 +19,7 @@ public class BeeControls : MonoBehaviour {
     public GameObject otherBee;
 
     public float distance;
-	public float direction;
+
 
 
 
@@ -74,9 +74,14 @@ public class BeeControls : MonoBehaviour {
         }
         
 
+		if (distance < 12) {
 
 			// Change the velocity of the object using the speed and movement floats
-			RB.velocity = new Vector2(horiMovement * speed, vertMovement * speed);
+			RB.velocity = new Vector2 (horiMovement * speed, vertMovement * speed);
+		} else {
+
+			RB.velocity = Vector2.Lerp(transform.position,otherBee.transform.position,10f);
+		}
 	
 
 
