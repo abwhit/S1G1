@@ -21,7 +21,7 @@ public class GameController : MonoBehaviour {
     public Text scoreText;
 
 	public int highScore;
-	public int highScoreText;
+	public Text highScoreText;
 
     public bool beesAreClose;
 
@@ -58,6 +58,8 @@ public class GameController : MonoBehaviour {
         timerText.text = timeM.ToString("0") + ":" + timeS.ToString("00");
 
         scoreText.text = "Score: " + score.ToString();
+
+        highScoreText.text = "Highscore: " + highScore.ToString();
 
 
         if (isPlaying)
