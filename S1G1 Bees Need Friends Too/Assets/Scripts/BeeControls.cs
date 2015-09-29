@@ -127,7 +127,7 @@ public class BeeControls : MonoBehaviour {
 
     void DistanceCheck()
     {
-        if (distance <= 2f)
+        if (distance <= 3f)
         {
             gameController.beesAreClose = true;
         }
