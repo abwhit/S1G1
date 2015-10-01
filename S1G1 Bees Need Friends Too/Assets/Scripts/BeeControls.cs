@@ -48,13 +48,7 @@ public class BeeControls : MonoBehaviour {
 
         DistanceCheck();
 
-		if (gameController.beesAreClose) {
-
-			speed = 10f;
-		} else {
-			speed = 5f;
-
-		}
+		
 
 	}
 
@@ -96,22 +90,33 @@ public class BeeControls : MonoBehaviour {
                 Debug.Log("111");
             }
         }
-		if(other.gameObject.GetComponent<BeeControls>() != null)
-		{
-			Debug.Log("222");
-
-			if(gameController.score > 0)
-			{
-			gameController.score -= 200;
-				if(gameController.score < 0)
-				{
-					gameController.score = 0;
-				}
-			}
+        if (other.gameObject.GetComponent<BeeControls>() != null)
+        {
+            Debug.Log("222");
 
 
-			
-		}
+
+
+            if (gameController.score > 0)
+            {
+                gameController.score -= 200;
+                if (gameController.score < 0)
+                {
+                    gameController.score = 0;
+                }
+            }
+
+            gameObject.GetComponent<Renderer>().material.color = Color.red;
+
+        }
+        
+      
+
+    }
+
+    void OnCollisionExit2D(Collision2D other)
+    {
+        gameObject.GetComponent<Renderer>().material.color = Color.white;
 
     }
 

@@ -16,6 +16,8 @@ public class CameraFollow : MonoBehaviour {
     // Store the z position so it can be used later to get the camera position
     float zPos = -10f;
 
+    float newZ;
+
     // Storing the x and y coords which are in between the entities
     public float middleOfX;
     public float middleOfY;
@@ -43,9 +45,29 @@ public class CameraFollow : MonoBehaviour {
         // Find the new x and y positions
         newX = middleOfX + x1;
         newY = middleOfY + y1;
-        // Move to that new position
-        transform.position = new Vector3(newX, newY, -10);
+
+       
+       
+            newZ = bee1.GetComponent<BeeControls>().distance * zPos / 5;
+        if (newZ > zPos)
+        {
+
+            newZ = -10;
 
 
+        }
+        else if( newZ < zPos*2)
+        {
+
+            newZ = -20;
+
+        }
+
+
+
+            // Move to that new position
+            //  transform.position = new Vector3(newX, newY, -10);
+
+            transform.position = Vector3.Lerp(transform.position, new Vector3(newX, newY, newZ), 1.0f);
     }
 }
